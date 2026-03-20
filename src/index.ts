@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
       <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <title>这是我月入万刀的第一步</title>
+        <title>月入万刀的第一步！</title>
         <style>
           :root{
             --bg: #f7f2ea;
@@ -122,98 +122,85 @@ app.get('/', (req, res) => {
             box-shadow: var(--shadow);
             overflow: hidden;
           }
-          .hero-video{
-            padding: 22px;
-          }
-          .video-slot{
-            border-radius: 14px;
-            border: 1px solid rgba(15,42,67,.16);
-            background:
-              radial-gradient(900px 220px at 50% 0%, rgba(212,175,55,.20), transparent 55%),
-              linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.35));
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
-            aspect-ratio: 16 / 9;
+          /* --- Hero 大色块版式：经典色系，纯视觉表达 --- */
+          .hero-stage{
             display: grid;
-            place-items: center;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            align-items: stretch;
+          }
+          .panel{
+            border-radius: 26px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            overflow: hidden;
             position: relative;
           }
-          .video-slot:before{
+          .panel-navy{
+            background: linear-gradient(135deg, rgba(15,42,67,.98), rgba(15,42,67,.78));
+            border-color: rgba(212,175,55,.38);
+            min-height: 420px;
+          }
+          .panel-navy::before{
             content: "";
             position: absolute;
-            inset: 10px;
-            border-radius: 12px;
-            border: 1px dashed rgba(15,42,67,.20);
+            inset: -40%;
+            background:
+              radial-gradient(circle at 25% 25%, rgba(212,175,55,.34), transparent 55%),
+              radial-gradient(circle at 75% 70%, rgba(176,137,104,.28), transparent 55%),
+              radial-gradient(circle at 60% 10%, rgba(255,255,255,.10), transparent 55%);
+            transform: rotate(10deg);
             pointer-events: none;
           }
-          .video-slot video{
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-            border-radius: 14px;
+          .panel-navy::after{
+            content: "";
+            position: absolute;
+            left: -70px;
+            top: 44px;
+            width: 240px;
+            height: 240px;
+            border-radius: 30px;
+            background: linear-gradient(180deg, rgba(212,175,55,.26), rgba(212,175,55,.08));
+            border: 1px solid rgba(212,175,55,.44);
+            transform: rotate(12deg);
+            pointer-events: none;
           }
-          .video-placeholder{
-            text-align: center;
-            padding: 18px;
+          .core-title{
             position: relative;
-            z-index: 1;
-          }
-          .play{
-            width: 58px;
-            height: 58px;
-            margin: 0 auto 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(15,42,67,.18);
-            background: rgba(255,255,255,.62);
-            display: grid;
-            place-items: center;
-            box-shadow: 0 12px 30px rgba(15,42,67,.10);
-          }
-          .video-placeholder-title{
-            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
-            font-weight: 700;
-            letter-spacing: .02em;
-            margin: 0 0 6px;
-            color: rgba(24,33,43,.88);
-          }
-          .video-placeholder-sub{
             margin: 0;
-            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
-            color: var(--muted);
-            font-size: 14px;
+            padding: 54px 26px 34px;
+            font-weight: 950;
+            letter-spacing: -0.03em;
+            font-size: clamp(40px, 6vw, 76px);
+            line-height: 1.03;
+            color: #f7e9b0;
+            text-shadow: 0 26px 70px rgba(0,0,0,.32);
+            text-wrap: balance;
           }
-          .hero-caption{
-            padding: 0 22px 22px;
-            display: grid;
-            gap: 10px;
+          .panel-taupe{
+            background:
+              linear-gradient(180deg, rgba(176,137,104,.36), rgba(176,137,104,.20)),
+              linear-gradient(135deg, rgba(255,253,248,.80), rgba(255,253,248,.34));
+            border-color: rgba(15,42,67,.16);
+            min-height: 220px;
           }
-          .hero-caption .headline{
-            margin: 0;
-            font-size: clamp(22px, 3vw, 30px);
-            line-height: 1.25;
-            letter-spacing: .01em;
+          .panel-taupe::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+              linear-gradient(90deg, rgba(212,175,55,.26), transparent 45%),
+              repeating-linear-gradient(135deg, rgba(15,42,67,.12) 0, rgba(15,42,67,.12) 1px, transparent 1px, transparent 12px);
+            opacity: .35;
+            pointer-events: none;
           }
-          .hero-caption .tagline{
-            margin: 0;
-            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
-            font-size: 18px;
-            font-weight: 750;
-            color: rgba(15,42,67,.92);
-          }
-          .hero-caption .tagline strong{
-            color: var(--navy);
-            background: linear-gradient(90deg, rgba(212,175,55,.25), rgba(176,137,104,.25));
-            padding: 2px 8px;
-            border-radius: 999px;
-            border: 1px solid rgba(212,175,55,.35);
-          }
-          .hero-caption .lead{
-            margin: 0;
-            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
-            color: var(--muted);
-            line-height: 1.7;
-            font-size: 15px;
-            max-width: 70ch;
+          @media (min-width: 900px){
+            .hero-stage{
+              grid-template-columns: 1.35fr .65fr;
+            }
+            .panel-taupe{
+              min-height: 420px;
+            }
           }
 
           footer{
@@ -249,24 +236,12 @@ app.get('/', (req, res) => {
 
         <main>
           <div class="wrap">
-            <section class="hero" aria-label="开场视频">
-              <p class="hero-topline">Web 出海 · 经典美学</p>
-              <div class="card">
-                <div class="hero-video">
-                  <div class="video-slot" id="videoSlot">
-                    <video controls playsinline preload="metadata" aria-label="开场视频">
-                      <source src="/video.mp4" type="video/mp4" />
-                      <!-- 如果你的视频不是 video.mp4，把 src 改成你的文件名 -->
-                    </video>
-                  </div>
+            <section class="hero" aria-label="主视觉">
+              <div class="hero-stage">
+                <div class="panel panel-navy">
+                  <h1 class="core-title">月入万刀的第一步！</h1>
                 </div>
-                <div class="hero-caption">
-                  <p class="headline">“先建立可信度，再谈结果。”</p>
-                  <p class="tagline">这是我月入万到的第一步！</p>
-                  <p class="lead">
-                    用更清晰的叙事、更高级的视觉，让你的出海页面从“能看”变成“值得点开”。
-                  </p>
-                </div>
+                <div class="panel panel-taupe" aria-hidden="true"></div>
               </div>
             </section>
           </div>
