@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
           <a href="/healthz">Health</a>
         </nav>
         <h1>Welcome to Express on Vercel 🚀</h1>
-        <p>This is a minimal example without a database or forms.</p>
+        <p>你好世界！这是我的第一个网站，未来我将月入万刀！</p>
         <img src="/logo.png" alt="Logo" width="120" />
       </body>
     </html>
