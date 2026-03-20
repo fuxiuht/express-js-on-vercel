@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
           }
           *{ box-sizing: border-box; }
           html,body{ height: 100%; }
+          
           body{
             margin: 0;
             color: var(--ink);
@@ -217,6 +218,7 @@ app.get('/', (req, res) => {
             }
           }
         </style>
+        <meta name="google-site-verification" content="gUoCvyUkt1i35ZT3_IbhaNOq17srven9LzJiTtB2n6c" />
       </head>
       <body>
         <header class="site-header">
